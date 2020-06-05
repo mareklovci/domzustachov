@@ -50,7 +50,7 @@ class Piece(models.Model):
     slug = models.SlugField(null=True, blank=True)
 
     # Relationships
-    composers = models.ManyToManyField('Composer', blank=True)
+    composers = models.ManyToManyField('Composer', through='ComposerPiece', blank=True)
     events = models.ManyToManyField('Event', through='EventPiece', blank=True)
     articles = models.ManyToManyField('Article', through='ArticlePiece', blank=True)
 
@@ -80,7 +80,7 @@ class Composer(models.Model):
 
     # Relationships
     articles = models.ManyToManyField('Article', through='ArticleComposer', blank=True)
-    pieces = models.ManyToManyField('Piece', through=Piece.composers.through, blank=True)
+    pieces = models.ManyToManyField('Piece', through='ComposerPiece', blank=True)
 
     def __str__(self):
         return '%s' % self.name
@@ -91,6 +91,14 @@ class Composer(models.Model):
             self.slug = slugify(self.name)
 
         super(Composer, self).save(*args, **kwargs)
+
+
+class ComposerPiece(models.Model):
+    composer = models.ForeignKey(Composer, on_delete=models.CASCADE)
+    piece = models.ForeignKey(Composer, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'domzustachov_composer_piece'
 
 
 class ArticleComposer(models.Model):
