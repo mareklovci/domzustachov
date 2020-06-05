@@ -1,5 +1,11 @@
 # domzustachov
 
+## Technologies
+
+* django
+* tailwindcss
+* Vue.js
+
 ## Migration
 
 ```shell script
@@ -25,5 +31,11 @@ python manage.py createsuperuser
 
 ## Tutorials
 
+### Django
+
 * [Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
 * [Sitepoint](https://www.sitepoint.com/web-app-prototype-django-vue/)
+
+### Vue.js
+
+* [ITNext](https://itnext.io/how-to-structure-a-vue-js-project-29e4ddc1aeeb)
