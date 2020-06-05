@@ -51,7 +51,7 @@ class Piece(models.Model):
 
     # Relationships
     composers = models.ManyToManyField('Composer', blank=True)
-    events = models.ManyToManyField('Event', blank=True)
+    events = models.ManyToManyField('Event', through='EventPiece', blank=True)
     articles = models.ManyToManyField('Article', through='ArticlePiece', blank=True)
 
     def __str__(self):
@@ -108,7 +108,7 @@ class Event(models.Model):
 
     # Relationships
     players = models.ManyToManyField('Player', through='EventPlayer', blank=True)
-    pieces = models.ManyToManyField('Piece', through=Piece.events.through, blank=True)
+    pieces = models.ManyToManyField('Piece', through='EventPiece', blank=True)
     articles = models.ManyToManyField('Article', through='ArticleEvent', blank=True)
 
     def __str__(self):
@@ -120,6 +120,14 @@ class Event(models.Model):
             self.slug = slugify(self.name)
 
         super(Event, self).save(*args, **kwargs)
+
+
+class EventPiece(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    piece = models.ForeignKey(Piece, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'domzustachov_event_piece'
 
 
 class ArticleEvent(models.Model):
