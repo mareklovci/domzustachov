@@ -15,7 +15,7 @@ class Article(models.Model):
     events = models.ManyToManyField('Event', through='ArticleEvent', blank=True)
     composers = models.ManyToManyField('Composer', through='ArticleComposer', blank=True)
     pieces = models.ManyToManyField('Piece', through='ArticlePiece', blank=True)
-    players = models.ManyToManyField('Player', blank=True)
+    players = models.ManyToManyField('Player', through='ArticlePlayer', blank=True)
 
     def __str__(self):
         return '%s' % self.title
@@ -107,7 +107,7 @@ class Event(models.Model):
     slug = models.SlugField(null=True, blank=True)
 
     # Relationships
-    players = models.ManyToManyField('Player')
+    players = models.ManyToManyField('Player', through='EventPlayer', blank=True)
     pieces = models.ManyToManyField('Piece', through=Piece.events.through, blank=True)
     articles = models.ManyToManyField('Article', through='ArticleEvent', blank=True)
 
@@ -137,8 +137,8 @@ class Player(models.Model):
     slug = models.SlugField(null=True, blank=True)
 
     # Relationships
-    events = models.ManyToManyField('Event', through=Event.players.through, blank=True)
-    articles = models.ManyToManyField('Article', through=Article.players.through, blank=True)
+    events = models.ManyToManyField('Event', through='EventPlayer', blank=True)
+    articles = models.ManyToManyField('Article', through='ArticlePlayer', blank=True)
 
     def __str__(self):
         return '%s' % self.first_name
@@ -149,6 +149,14 @@ class Player(models.Model):
             self.slug = slugify(f'{self.first_name} {self.last_name}')
 
         super(Player, self).save(*args, **kwargs)
+
+
+class EventPlayer(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'domzustachov_event_player'
 
 
 class ArticlePlayer(models.Model):

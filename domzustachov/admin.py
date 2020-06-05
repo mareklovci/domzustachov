@@ -3,7 +3,8 @@ from markdownx.admin import AdminMarkdownxWidget
 from markdownx.models import MarkdownxField
 
 from domzustachov.models import Article
-from .models import ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, Event, Piece, Player
+from .models import ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, Event, EventPlayer, \
+    Piece, Player
 
 
 class ArticlePieceInline(admin.TabularInline):
@@ -23,6 +24,11 @@ class ArticleEventInline(admin.TabularInline):
 
 class ArticlePlayerInline(admin.TabularInline):
     model = ArticlePlayer
+    extra = 1
+
+
+class EventPlayerInline(admin.TabularInline):
+    model = EventPlayer
     extra = 1
 
 
@@ -47,11 +53,17 @@ class ComposerAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    inlines = (ArticleEventInline,)
+    inlines = (
+        ArticleEventInline,
+        EventPlayerInline,
+    )
 
 
 class PlayerAdmin(admin.ModelAdmin):
-    inlines = (ArticlePlayerInline,)
+    inlines = (
+        ArticlePlayerInline,
+        EventPlayerInline,
+    )
 
 
 # register models to use in admin site
