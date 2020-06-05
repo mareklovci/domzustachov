@@ -13,9 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
+from markdownx import urls as markdownx
+
+from .views import index, contact
 
 urlpatterns = [
+    # admin
     path('admin/', admin.site.urls),
+
+    # site
+    url(r'^$', index, name='index'),
+    url(r'^contact/$', contact, name='contact'),
+
+    # other
+    url(r'^markdownx/', include(markdownx)),
 ]
