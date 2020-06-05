@@ -78,6 +78,7 @@ class EventAdmin(admin.ModelAdmin):
 
 
 class PlayerAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'active_from', 'active_to')
     inlines = (
         ArticlePlayerInline,
         EventPlayerInline,

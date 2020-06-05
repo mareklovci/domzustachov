@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
@@ -32,6 +34,8 @@ class Author(models.Model):
     """Table schema to store authors."""
     name = models.CharField(max_length=64)
     slug = models.SlugField(null=True, blank=True)
+
+    player = models.OneToOneField('Player', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return '%s' % self.name
@@ -95,7 +99,7 @@ class Composer(models.Model):
 
 class ComposerPiece(models.Model):
     composer = models.ForeignKey(Composer, on_delete=models.CASCADE)
-    piece = models.ForeignKey(Composer, on_delete=models.CASCADE)
+    piece = models.ForeignKey(Piece, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'domzustachov_composer_piece'
@@ -150,6 +154,8 @@ class Player(models.Model):
     """Table schema to store players."""
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
+    active_from = models.DateField(default=datetime.date(1900, 1, 1))
+    active_to = models.DateField(default=datetime.date(1900, 1, 1))
     slug = models.SlugField(null=True, blank=True)
 
     # Relationships
@@ -157,7 +163,7 @@ class Player(models.Model):
     articles = models.ManyToManyField('Article', through='ArticlePlayer', blank=True)
 
     def __str__(self):
-        return '%s' % self.first_name
+        return f'{self.first_name} {self.last_name}'
 
     def save(self, *args, **kwargs):
         if not self.id:
