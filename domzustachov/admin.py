@@ -3,7 +3,7 @@ from markdownx.admin import AdminMarkdownxWidget
 from markdownx.models import MarkdownxField
 
 from domzustachov.models import Article
-from .models import ArticleComposer, ArticleEvent, ArticlePiece, Author, Composer, Event, Piece, Player
+from .models import ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, Event, Piece, Player
 
 
 class ArticlePieceInline(admin.TabularInline):
@@ -21,11 +21,17 @@ class ArticleEventInline(admin.TabularInline):
     extra = 1
 
 
+class ArticlePlayerInline(admin.TabularInline):
+    model = ArticlePlayer
+    extra = 1
+
+
 class ArticleAdmin(admin.ModelAdmin):
     inlines = (
         ArticlePieceInline,
         ArticleComposerInline,
         ArticleEventInline,
+        ArticlePlayerInline,
     )
     formfield_overrides = {
         MarkdownxField: {'widget': AdminMarkdownxWidget}
@@ -44,10 +50,14 @@ class EventAdmin(admin.ModelAdmin):
     inlines = (ArticleEventInline,)
 
 
+class PlayerAdmin(admin.ModelAdmin):
+    inlines = (ArticlePlayerInline,)
+
+
 # register models to use in admin site
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Author)
-admin.site.register(Event)
+admin.site.register(Event, EventAdmin)
 admin.site.register(Piece, PieceAdmin)
-admin.site.register(Player)
+admin.site.register(Player, PlayerAdmin)
 admin.site.register(Composer, ComposerAdmin)

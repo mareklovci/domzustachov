@@ -149,3 +149,11 @@ class Player(models.Model):
             self.slug = slugify(f'{self.first_name} {self.last_name}')
 
         super(Player, self).save(*args, **kwargs)
+
+
+class ArticlePlayer(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'domzustachov_article_player'
