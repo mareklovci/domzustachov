@@ -18,6 +18,7 @@ class Article(models.Model):
     composers = models.ManyToManyField('Composer', through='ArticleComposer', blank=True)
     pieces = models.ManyToManyField('Piece', through='ArticlePiece', blank=True)
     players = models.ManyToManyField('Player', through='ArticlePlayer', blank=True)
+    images = models.ManyToManyField('Image', blank=True)
 
     def __str__(self):
         return '%s' % self.title
@@ -154,8 +155,8 @@ class Player(models.Model):
     """Table schema to store players."""
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
-    active_from = models.DateField(default=datetime.date(1900, 1, 1))
-    active_to = models.DateField(default=datetime.date(1900, 1, 1))
+    active_from = models.DateField(null=True, blank=True)
+    active_to = models.DateField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
 
     # Relationships
@@ -187,3 +188,10 @@ class ArticlePlayer(models.Model):
 
     class Meta:
         db_table = 'domzustachov_article_player'
+
+
+class Image(models.Model):
+    image = models.ImageField(null=True, blank=True)
+    place = models.CharField(max_length=64, null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    author = models.CharField(max_length=64, null=True, blank=True)

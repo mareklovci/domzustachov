@@ -17,6 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
 from markdownx import urls as markdownx
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .views import index, contact
 
@@ -31,3 +33,6 @@ urlpatterns = [
     # other
     url(r'^markdownx/', include(markdownx)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

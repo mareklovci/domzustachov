@@ -9,7 +9,6 @@
 ## Migration
 
 ```shell script
-
 python manage.py makemigrations domzustachov
 python manage.py migrate domzustachov
 ```

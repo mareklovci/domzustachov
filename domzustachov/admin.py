@@ -4,7 +4,7 @@ from markdownx.models import MarkdownxField
 
 from domzustachov.models import Article
 from .models import ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, ComposerPiece, \
-    Event, EventPiece, EventPlayer, Piece, Player
+    Event, EventPiece, EventPlayer, Image, Piece, Player
 
 
 class ArticlePieceInline(admin.TabularInline):
@@ -49,6 +49,7 @@ class ArticleAdmin(admin.ModelAdmin):
         ArticleEventInline,
         ArticlePlayerInline,
     )
+    filter_horizontal = ('images',)
     formfield_overrides = {
         MarkdownxField: {'widget': AdminMarkdownxWidget}
     }
@@ -92,3 +93,4 @@ admin.site.register(Event, EventAdmin)
 admin.site.register(Piece, PieceAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(Composer, ComposerAdmin)
+admin.site.register(Image)
