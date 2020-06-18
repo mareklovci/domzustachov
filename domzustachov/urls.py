@@ -20,7 +20,9 @@ from markdownx import urls as markdownx
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index, contact
+from .views import index
+from django.contrib.flatpages import views
+
 
 urlpatterns = [
     # admin
@@ -28,7 +30,7 @@ urlpatterns = [
 
     # site
     url(r'^$', index, name='index'),
-    url(r'^contact/$', contact, name='contact'),
+    url(r'^o-nas/$', views.flatpage, {'url': '/o-nas/'}, name='about'),
 
     # other
     url(r'^markdownx/', include(markdownx)),

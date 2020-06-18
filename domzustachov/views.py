@@ -13,8 +13,3 @@ def index(request):
     }
 
     return render(request, 'index.html', data)
-
-
-def contact(request):
-    data = {}
-    return render(request, 'index.html', data)

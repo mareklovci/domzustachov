@@ -1,10 +1,10 @@
 from django.contrib import admin
 from markdownx.admin import AdminMarkdownxWidget
 from markdownx.models import MarkdownxField
+from django.utils.safestring import mark_safe
 
-from domzustachov.models import Article
-from .models import ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, ComposerPiece, \
-    Event, EventPiece, EventPlayer, Image, Piece, Player
+from .models import Article, ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, \
+    ComposerPiece, Event, EventPiece, EventPlayer, Image, Piece, Player
 
 
 class ArticlePieceInline(admin.TabularInline):
