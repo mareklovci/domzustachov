@@ -34,6 +34,7 @@ urlpatterns = [
 
     # other
     url(r'^markdownx/', include(markdownx)),
+    url(r'^photologue', include('photologue.urls', namespace='photologue'))
 ]
 
 if settings.DEBUG:

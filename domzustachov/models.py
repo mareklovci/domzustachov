@@ -3,6 +3,8 @@ import datetime
 from django.db import models
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
+from photologue.models import Photo
+from taggit.managers import TaggableManager
 
 
 class Article(models.Model):
@@ -10,6 +12,7 @@ class Article(models.Model):
     title = models.CharField(max_length=64)
     slug = models.SlugField(null=True, blank=True)
     content = MarkdownxField()
+    skills = TaggableManager()
 
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
 
@@ -18,7 +21,7 @@ class Article(models.Model):
     composers = models.ManyToManyField('Composer', through='ArticleComposer', blank=True)
     pieces = models.ManyToManyField('Piece', through='ArticlePiece', blank=True)
     players = models.ManyToManyField('Player', through='ArticlePlayer', blank=True)
-    images = models.ManyToManyField('Image', blank=True)
+    photos = models.ManyToManyField('PhotoExtended', through='ArticlePhoto', blank=True)
 
     def __str__(self):
         return '%s' % self.title
@@ -29,6 +32,14 @@ class Article(models.Model):
             self.slug = slugify(self.title)
 
         super(Article, self).save(*args, **kwargs)
+
+
+class ArticlePhoto(models.Model):
+    article = models.ForeignKey('Article', on_delete=models.CASCADE)
+    photo = models.ForeignKey('PhotoExtended', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'domzustachov_article_photo'
 
 
 class Author(models.Model):
@@ -190,8 +201,19 @@ class ArticlePlayer(models.Model):
         db_table = 'domzustachov_article_player'
 
 
-class Image(models.Model):
-    image = models.ImageField(null=True, blank=True)
-    place = models.CharField(max_length=64, null=True, blank=True)
-    date = models.DateField(null=True, blank=True)
-    author = models.CharField(max_length=64, null=True, blank=True)
+class PhotoExtended(models.Model):
+    # Link back to Photologue's Gallery model.
+    photo = models.OneToOneField(Photo, related_name='extended', on_delete=models.CASCADE)
+
+    # This is the important bit - where we add in the tags.
+    tags = TaggableManager(blank=True)
+
+    articles = models.ManyToManyField('Article', through='ArticlePhoto', blank=True)
+
+    # Boilerplate code to make a prettier display in the admin interface.
+    class Meta:
+        verbose_name = u'Extra fields'
+        verbose_name_plural = u'Extra fields'
+
+    def __str__(self):
+        return self.photo.title

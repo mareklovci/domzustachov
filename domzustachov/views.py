@@ -12,4 +12,4 @@ def index(request):
         'authors': authors,
     }
 
-    return render(request, 'index.html', data)
+    return render(request, 'base.html', data)

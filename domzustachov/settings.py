@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'domzustachov',
     'markdownx',
+    'photologue',
+    'sortedm2m',
+    'taggit',
     'tailwind',
     'theme',
 ]

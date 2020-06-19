@@ -1,10 +1,12 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from markdownx.admin import AdminMarkdownxWidget
 from markdownx.models import MarkdownxField
-from django.utils.safestring import mark_safe
+from photologue.admin import PhotoAdmin as PhotoAdminDefault
+from photologue.models import Photo
 
-from .models import Article, ArticleComposer, ArticleEvent, ArticlePiece, ArticlePlayer, Author, Composer, \
-    ComposerPiece, Event, EventPiece, EventPlayer, Image, Piece, Player
+from .models import Article, ArticleComposer, ArticleEvent, ArticlePhoto, ArticlePiece, ArticlePlayer, Author, Composer, \
+    ComposerPiece, Event, EventPiece, EventPlayer, PhotoExtended, Piece, Player
 
 
 class ArticlePieceInline(admin.TabularInline):
@@ -42,14 +44,25 @@ class EventPieceInline(admin.TabularInline):
     extra = 1
 
 
+class ArticlePhotoInline(admin.TabularInline):
+    model = ArticlePhoto
+    extra = 1
+
+    readonly_fields = ('render_image',)
+
+    @staticmethod
+    def render_image(obj):
+        return mark_safe(f'<img src="{obj.photo.photo.get_admin_thumbnail_url()}" />')
+
+
 class ArticleAdmin(admin.ModelAdmin):
     inlines = (
         ArticlePieceInline,
         ArticleComposerInline,
         ArticleEventInline,
         ArticlePlayerInline,
+        ArticlePhotoInline,
     )
-    filter_horizontal = ('images',)
     formfield_overrides = {
         MarkdownxField: {'widget': AdminMarkdownxWidget}
     }
@@ -86,6 +99,19 @@ class PlayerAdmin(admin.ModelAdmin):
     )
 
 
+class PhotoExtendedInline(admin.StackedInline):
+    model = PhotoExtended
+    can_delete = False
+
+
+class PhotoAdmin(PhotoAdminDefault):
+    inlines = (PhotoExtendedInline,)
+    exclude = ('articles',)
+
+
+admin.site.unregister(Photo)
+admin.site.register(Photo, PhotoAdmin)
+
 # register models to use in admin site
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Author)
@@ -93,4 +119,3 @@ admin.site.register(Event, EventAdmin)
 admin.site.register(Piece, PieceAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(Composer, ComposerAdmin)
-admin.site.register(Image)

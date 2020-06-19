@@ -9,6 +9,8 @@
 ## Migration
 
 ```shell script
+python manage.py migrate
+python manage.py migrate photologue
 python manage.py makemigrations domzustachov
 python manage.py migrate domzustachov
 ```
@@ -38,3 +40,12 @@ python manage.py createsuperuser
 ### Vue.js
 
 * [ITNext](https://itnext.io/how-to-structure-a-vue-js-project-29e4ddc1aeeb)
+
+### Tailwind
+
+* [Django-tailwind](https://github.com/timonweb/django-tailwind)
+* [Hackernews](https://news.ycombinator.com/item?id=20656118)
+
+### Gallery
+
+* Photologue
