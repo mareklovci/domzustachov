@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
     'taggit',
+    'taggit_autosuggest',
     'tailwind',
     'theme',
 ]
@@ -138,3 +139,9 @@ SITE_ID = 1
 TAILWIND_APP_NAME = 'theme'
 
 NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+
+TAGS_INPUT_MAPPINGS = {
+    'domzustachov.tags': {
+        'field': 'tags',
+    }
+}

@@ -34,7 +34,8 @@ urlpatterns = [
 
     # other
     url(r'^markdownx/', include(markdownx)),
-    url(r'^photologue', include('photologue.urls', namespace='photologue'))
+    url(r'^photologue', include('photologue.urls', namespace='photologue')),
+    url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
 ]
 
 if settings.DEBUG:

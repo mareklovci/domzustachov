@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
 from photologue.models import Photo
-from taggit.managers import TaggableManager
+from taggit_autosuggest.managers import TaggableManager
 
 
 class Article(models.Model):
@@ -12,7 +12,7 @@ class Article(models.Model):
     title = models.CharField(max_length=64)
     slug = models.SlugField(null=True, blank=True)
     content = MarkdownxField()
-    skills = TaggableManager()
+    tags = TaggableManager()
 
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
 
@@ -134,6 +134,7 @@ class Event(models.Model):
     players = models.ManyToManyField('Player', through='EventPlayer', blank=True)
     pieces = models.ManyToManyField('Piece', through='EventPiece', blank=True)
     articles = models.ManyToManyField('Article', through='ArticleEvent', blank=True)
+    photos = models.ManyToManyField('PhotoExtended', through='EventPhoto', blank=True)
 
     def __str__(self):
         return '%s' % self.name
@@ -144,6 +145,14 @@ class Event(models.Model):
             self.slug = slugify(self.name)
 
         super(Event, self).save(*args, **kwargs)
+
+
+class EventPhoto(models.Model):
+    event = models.ForeignKey('Event', on_delete=models.CASCADE)
+    photo = models.ForeignKey('PhotoExtended', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'domzustachov_event_photo'
 
 
 class EventPiece(models.Model):
@@ -204,11 +213,10 @@ class ArticlePlayer(models.Model):
 class PhotoExtended(models.Model):
     # Link back to Photologue's Gallery model.
     photo = models.OneToOneField(Photo, related_name='extended', on_delete=models.CASCADE)
-
-    # This is the important bit - where we add in the tags.
     tags = TaggableManager(blank=True)
 
     articles = models.ManyToManyField('Article', through='ArticlePhoto', blank=True)
+    events = models.ManyToManyField('Event', through='EventPhoto', blank=True)
 
     # Boilerplate code to make a prettier display in the admin interface.
     class Meta:

@@ -49,3 +49,7 @@ python manage.py createsuperuser
 ### Gallery
 
 * Photologue
+
+### Tags
+
+* https://bitbucket.org/fabian/django-taggit-autosuggest

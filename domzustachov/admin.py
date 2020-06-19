@@ -5,8 +5,8 @@ from markdownx.models import MarkdownxField
 from photologue.admin import PhotoAdmin as PhotoAdminDefault
 from photologue.models import Photo
 
-from .models import Article, ArticleComposer, ArticleEvent, ArticlePhoto, ArticlePiece, ArticlePlayer, Author, Composer, \
-    ComposerPiece, Event, EventPiece, EventPlayer, PhotoExtended, Piece, Player
+from .models import Article, ArticleComposer, ArticleEvent, ArticlePhoto, ArticlePiece, ArticlePlayer, Author, \
+    Composer, ComposerPiece, Event, EventPiece, EventPlayer, PhotoExtended, Piece, Player, EventPhoto
 
 
 class ArticlePieceInline(admin.TabularInline):
@@ -55,6 +55,17 @@ class ArticlePhotoInline(admin.TabularInline):
         return mark_safe(f'<img src="{obj.photo.photo.get_admin_thumbnail_url()}" />')
 
 
+class EventPhotoInline(admin.TabularInline):
+    model = EventPhoto
+    extra = 1
+
+    readonly_fields = ('render_image',)
+
+    @staticmethod
+    def render_image(obj):
+        return mark_safe(f'<img src="{obj.photo.photo.get_admin_thumbnail_url()}" />')
+
+
 class ArticleAdmin(admin.ModelAdmin):
     inlines = (
         ArticlePieceInline,
@@ -88,6 +99,7 @@ class EventAdmin(admin.ModelAdmin):
         ArticleEventInline,
         EventPlayerInline,
         EventPlayerInline,
+        EventPhotoInline,
     )
 
 
@@ -106,7 +118,7 @@ class PhotoExtendedInline(admin.StackedInline):
 
 class PhotoAdmin(PhotoAdminDefault):
     inlines = (PhotoExtendedInline,)
-    exclude = ('articles',)
+    exclude = ('articles', 'events',)
 
 
 admin.site.unregister(Photo)
