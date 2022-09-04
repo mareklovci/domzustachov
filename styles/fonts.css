@@ -1,0 +1,165 @@
+/* Argent */
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFSuper.woff2') format('woff2'),
+    url('../fonts/ArgentCFSuper.woff') format('woff');
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFExtraBold.woff2') format('woff2'),
+    url('../fonts/ArgentCFExtraBold.woff') format('woff');
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFExtraBoldItalic.woff2') format('woff2'),
+    url('../fonts/ArgentCFExtraBoldItalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFBold.woff2') format('woff2'),
+    url('../fonts/ArgentCFBold.woff') format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFBoldItalic.woff2') format('woff2'),
+    url('../fonts/ArgentCFBoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFDemiBold.woff2') format('woff2'),
+    url('../fonts/ArgentCFDemiBold.woff') format('woff');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFDemiBoldItalic.woff2') format('woff2'),
+    url('../fonts/ArgentCFDemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFRegular.woff2') format('woff2'),
+    url('../fonts/ArgentCFRegular.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFRegularItalic.woff2') format('woff2'),
+    url('../fonts/ArgentCFRegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFLight.woff2') format('woff2'),
+    url('../fonts/ArgentCFLight.woff') format('woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFLightItalic.woff2') format('woff2'),
+    url('../fonts/ArgentCFLightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFThin.woff2') format('woff2'),
+    url('../fonts/ArgentCFThin.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Argent';
+  src: url('../fonts/ArgentCFThinItalic.woff2') format('woff2'),
+    url('../fonts/ArgentCFThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* Brandon */
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebBlack.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebBlack.woff') format('woff');
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebBlackItalic.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebBlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebBold.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebBold.woff') format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebBoldItalic.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebBoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebMedium.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebMedium.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebMediumItalic.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebMediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebRegular.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebRegular.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebRegularItalic.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebRegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebLight.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebLight.woff') format('woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebLightItalic.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebLightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebThin.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebThin.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/BrandonTextWebThinItalic.woff2') format('woff2'),
+    url('../fonts/BrandonTextWebThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
