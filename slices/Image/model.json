@@ -19,13 +19,25 @@
             "thumbnails": []
           }
         },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "caption": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Caption",
-            "placeholder": "Optional - Caption under the image",
-            "allowTargetBlank": true,
-            "single": "paragraph,em,strong"
+            "placeholder": ""
+          }
+        },
+        "source": {
+          "type": "Text",
+          "config": {
+            "label": "Source",
+            "placeholder": ""
           }
         }
       },
@@ -47,13 +59,25 @@
             "thumbnails": []
           }
         },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "caption": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Caption",
-            "placeholder": "Optional - Caption under the image",
-            "allowTargetBlank": true,
-            "single": "paragraph,em,strong"
+            "placeholder": ""
+          }
+        },
+        "source": {
+          "type": "Text",
+          "config": {
+            "label": "Source",
+            "placeholder": ""
           }
         }
       },

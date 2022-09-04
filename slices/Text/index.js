@@ -5,9 +5,9 @@ import { Bounded } from "../../components/Bounded";
 
 const Text = ({ slice }) => {
   return (
-    <Bounded as="section">
+    <Bounded as='section'>
       {prismicH.isFilled.richText(slice.primary.text) && (
-        <div className="font-serif leading-relaxed md:text-xl md:leading-relaxed">
+        <div className='font-serif text-base leading-relaxed md:text-lg md:leading-relaxed'>
           <PrismicRichText field={slice.primary.text} />
         </div>
       )}

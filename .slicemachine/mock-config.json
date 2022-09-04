@@ -75,14 +75,8 @@
     "Image": {
       "default": {
         "primary": {
-          "caption": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          },
           "image": {
-            "content": "https://images.prismic.io/nextjs-starter-prismic-blog/bbde7d62-670b-4592-b76c-4047d0cf1635_jake-melara-Yh6K2eTr_FY-unsplash.jpg"
+            "content": "https://images.unsplash.com/photo-1603312158640-1f7bf7747d92"
           }
         }
       },

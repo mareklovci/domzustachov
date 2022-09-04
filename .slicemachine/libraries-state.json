@@ -39,7 +39,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-blog/.slicemachine/assets/slices/ContactForm/default/preview.png",
+            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\ContactForm\\default\\preview.png",
             "width": 800,
             "height": 517
           }
@@ -71,13 +71,25 @@
                     "thumbnails": []
                   }
                 },
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
                 "caption": {
-                  "type": "StructuredText",
+                  "type": "Text",
                   "config": {
                     "label": "Caption",
-                    "placeholder": "Optional - Caption under the image",
-                    "allowTargetBlank": true,
-                    "single": "paragraph,em,strong"
+                    "placeholder": ""
+                  }
+                },
+                "source": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Source",
+                    "placeholder": ""
                   }
                 }
               },
@@ -99,13 +111,25 @@
                     "thumbnails": []
                   }
                 },
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
                 "caption": {
-                  "type": "StructuredText",
+                  "type": "Text",
                   "config": {
                     "label": "Caption",
-                    "placeholder": "Optional - Caption under the image",
-                    "allowTargetBlank": true,
-                    "single": "paragraph,em,strong"
+                    "placeholder": ""
+                  }
+                },
+                "source": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Source",
+                    "placeholder": ""
                   }
                 }
               },
@@ -117,51 +141,47 @@
         "mocks": {
           "default": {
             "variation": "default",
-            "name": "Default",
-            "slice_type": "image",
-            "items": [],
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
             "primary": {
               "image": {
                 "dimensions": {
                   "width": 900,
                   "height": 500
                 },
-                "alt": "Placeholder image",
+                "alt": null,
                 "copyright": null,
-                "url": "https://images.prismic.io/nextjs-starter-prismic-blog/bbde7d62-670b-4592-b76c-4047d0cf1635_jake-melara-Yh6K2eTr_FY-unsplash.jpg?w=900&h=500&fit=crop"
+                "url": "https://images.unsplash.com/photo-1603312158640-1f7bf7747d92"
               },
-              "caption": [
-                {
-                  "type": "paragraph",
-                  "text": "Commodo magna dolor est aute in enim do in minim excepteur pariatur duis culpa dolor. Fugiat non ipsum cupidatat proident velit aute Lorem cillum reprehenderit Lorem occaecat esse cillum. Aute aliqua dolor ad elit et.",
-                  "spans": []
-                }
-              ]
-            }
+              "title": "airplane",
+              "caption": "zipper",
+              "source": "generally"
+            },
+            "slice_type": "image"
           },
           "wide": {
             "variation": "wide",
-            "name": "Wide",
-            "slice_type": "image",
-            "items": [],
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
             "primary": {
               "image": {
                 "dimensions": {
                   "width": 900,
                   "height": 500
                 },
-                "alt": "Placeholder image",
+                "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=900&h=500&fit=crop"
+                "url": "https://images.unsplash.com/photo-1493397212122-2b85dda8106b"
               },
-              "caption": [
-                {
-                  "type": "paragraph",
-                  "text": "Elit sunt cillum deserunt in qui culpa anim veniam amet dolore consectetur pariatur magna dolor ex.",
-                  "spans": []
-                }
-              ]
-            }
+              "title": "left",
+              "caption": "clothes",
+              "source": "new"
+            },
+            "slice_type": "image"
           }
         },
         "meta": {
@@ -170,14 +190,14 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-blog/.slicemachine/assets/slices/Image/default/preview.png",
+            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Image\\default\\preview.png",
             "width": 800,
-            "height": 586
+            "height": 534
           },
           "wide": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-blog/.slicemachine/assets/slices/Image/wide/preview.png",
+            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Image\\wide\\preview.png",
             "width": 800,
-            "height": 538
+            "height": 534
           }
         }
       },
@@ -245,7 +265,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-blog/.slicemachine/assets/slices/Quote/default/preview.png",
+            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Quote\\default\\preview.png",
             "width": 800,
             "height": 178
           }
@@ -322,7 +342,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-blog/.slicemachine/assets/slices/Text/default/preview.png",
+            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Text\\default\\preview.png",
             "width": 800,
             "height": 489
           }
