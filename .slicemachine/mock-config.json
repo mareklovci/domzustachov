@@ -57,7 +57,10 @@
           "blocks": 1
         }
       }
-    }
+    },
+    "tour": {},
+    "player": {},
+    "agenda": {}
   },
   "slices": {
     "Text": {
@@ -103,6 +106,18 @@
     "ContactForm": {
       "default": {
         "primary": {}
+      }
+    },
+    "Alert": {
+      "default": {
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
       }
     }
   }

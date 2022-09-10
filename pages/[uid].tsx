@@ -5,18 +5,23 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient, linkResolver } from "../prismicio";
 import { components } from "../slices";
 import { Layout } from "../components/Layout";
+import Seo from "../components/Seo";
 
 const Page = ({ page, navigation, settings }) => {
   return (
-    <Layout navigation={navigation} settings={settings}>
-      <Head>
-        <title>
-          {prismicH.asText(page.data.title)} |{" "}
-          {prismicH.asText(settings.data.name)}
-        </title>
-      </Head>
-      <SliceZone slices={page.data.slices} components={components} />
-    </Layout>
+    <>
+      <Seo templateTitle='Not Found' />
+
+      <Layout navigation={navigation} settings={settings}>
+        <Head>
+          <title>
+            {prismicH.asText(page.data.title)} |{" "}
+            {prismicH.asText(settings.data.name)}
+          </title>
+        </Head>
+        <SliceZone slices={page.data.slices} components={components} />
+      </Layout>
+    </>
   );
 };
 

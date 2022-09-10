@@ -1,0 +1,20 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "title": "means",
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Incididunt in veniam nulla aliqua magna laborum labore occaecat velit.",
+          "spans": []
+        }
+      ]
+    },
+    "slice_type": "alert"
+  }
+]

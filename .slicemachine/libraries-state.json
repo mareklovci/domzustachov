@@ -1,6 +1,78 @@
 {
   "slices": {
     "components": {
+      "alert": {
+        "library": "slices",
+        "id": "alert",
+        "name": "Alert",
+        "description": "Alert",
+        "model": {
+          "id": "alert",
+          "type": "SharedSlice",
+          "name": "Alert",
+          "description": "Alert",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Alert",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,list-item,o-list-item,em,strong"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": "means",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Incididunt in veniam nulla aliqua magna laborum labore occaecat velit.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "alert"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/k1013597/git/github/domzustachov/.slicemachine/assets/slices/Alert/default/preview.png",
+            "width": 800,
+            "height": 164
+          }
+        }
+      },
       "contact_form": {
         "library": "slices",
         "id": "contact_form",
@@ -39,7 +111,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\ContactForm\\default\\preview.png",
+            "path": "/home/k1013597/git/github/domzustachov/.slicemachine/assets/slices/ContactForm/default/preview.png",
             "width": 800,
             "height": 517
           }
@@ -190,12 +262,12 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Image\\default\\preview.png",
+            "path": "/home/k1013597/git/github/domzustachov/.slicemachine/assets/slices/Image/default/preview.png",
             "width": 800,
             "height": 534
           },
           "wide": {
-            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Image\\wide\\preview.png",
+            "path": "/home/k1013597/git/github/domzustachov/.slicemachine/assets/slices/Image/wide/preview.png",
             "width": 800,
             "height": 534
           }
@@ -265,7 +337,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Quote\\default\\preview.png",
+            "path": "/home/k1013597/git/github/domzustachov/.slicemachine/assets/slices/Quote/default/preview.png",
             "width": 800,
             "height": 178
           }
@@ -342,7 +414,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\04052022\\Documents\\GitHub\\domzustachov\\.slicemachine\\assets\\slices\\Text\\default\\preview.png",
+            "path": "/home/k1013597/git/github/domzustachov/.slicemachine/assets/slices/Text/default/preview.png",
             "width": 800,
             "height": 489
           }

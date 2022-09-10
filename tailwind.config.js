@@ -1,8 +1,8 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.js', './components/**/*.js', './slices/**/*.js'],
+  content: ["./pages/**/*.js", "./components/**/*.js", "./slices/**/*.js"],
   theme: {
     fontFamily: {
       sans: 'Argent, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
@@ -11,12 +11,18 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        primary: ['Argent', ...fontFamily.sans],
-        secondary: ['Brandon', ...fontFamily.serif],
-        argent: ['Argent', ...fontFamily.sans],
-        brandon: ['Brandon', ...fontFamily.serif],
+        primary: ["Argent", ...fontFamily.sans],
+        secondary: ["Brandon", ...fontFamily.serif],
+        argent: ["Argent", ...fontFamily.sans],
+        brandon: ["Brandon", ...fontFamily.serif],
+      },
+      colors: {
+        red: {
+          light: "#FFBFBF",
+          DEFAULT: "#CE2124",
+        },
       },
     },
   },
-  plugins: [require('@tailwindcss/aspect-ratio')],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };
